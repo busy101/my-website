@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login with Slideshow Background</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial;
+    }
+
+    /* Background Slideshow Container */
+    .slideshow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      animation: slideShow 20s infinite;
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Keyframes for Slideshow */
+    @keyframes slideShow {
+      0%   { background-image: url('images/bg01.jpg'); }
+      33%  { background-image: url('images/bg02.jpg'); }
+      66%  { background-image: url('images/bg03.jpg'); }
+      100% { background-image: url('images/bg01.jpg'); }
+    }
+
+    .login-container {
+      position: relative;
+      max-width: 300px;
+      margin: 100px auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    input, button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="slideshow"></div>
+
+  <div class="login-container">
+    <h2>Login</h2>
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="login()">Login</button>
+    <p id="error" style="color: red;"></p>
+  </div>
+
+  <script>
+    function login() {
+      const password = document.getElementById("password").value;
+
+      const validPassword = "Phepsinele";
+
+      if (password === validPassword) {
+        window.location.href = "content.html";
+      } else {
+        document.getElementById("error").textContent = "Incorrect password.";
+      }
+    }
+  </script>
+</body>
+</html>
